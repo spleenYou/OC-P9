@@ -1,0 +1,61 @@
+body {
+    font-family: "SF Pro Text", 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: auto;
+}
+
+nav {
+    vertical-align: middle;
+    text-align: center;
+    color: rgb(55, 55, 55);
+    font-size: 20px;
+    font-weight: bold;
+    /* background: linear-gradient(90deg, #2cd4d9 0%, #5333ed 50%, #2cd4d9 100%); */
+    background-color: rgb(93, 187, 223);
+    padding: 10px 0;
+    height: 50px;
+}
+
+nav div {
+    padding: inherit;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 50px;
+}
+
+.container div {
+    text-align: center;
+}
+
+#subscribe > p, #connection > p {
+    font-size: 24px;
+}
+
+#subscribe a, #connection button {
+    text-decoration: none;
+    color: black;
+    font-size: medium;
+    font-style: normal;
+    background-color: white;
+    padding: 10px;
+    border: 2px black solid;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#connection input {
+    padding: 10px 0;
+    margin: 10px 0;
+    border: 2px solid black;
+    width: 50%;
+    min-width: 200px;
+    text-align: center;
+}
+
+#connection input::placeholder {
+    color: black;
+    text-align: center;
+    font-size: 16px;
+}
