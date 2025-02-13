@@ -13,6 +13,10 @@ class Ticket(models.Model):
     time_created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = "Le ticket"
+        verbose_name_plural = 'Les tickets'
+
 
 class Review(models.Model):
     ticket = models.ForeignKey("Ticket", on_delete=models.CASCADE)
@@ -25,7 +29,11 @@ class Review(models.Model):
         max_length=8192,
         blank=True
     )
-    time_created = models.DateTimeField(auto_now_add=False)
+    time_created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "La critique"
+        verbose_name_plural = 'Les critiques'
 
 
 class UserFollows(models.Model):
@@ -42,3 +50,5 @@ class UserFollows(models.Model):
 
     class Meta:
         unique_together = ('user', 'followed_user')
+        verbose_name = "Utilisateur suivi"
+        verbose_name_plural = 'Utilisateurs suivis'
