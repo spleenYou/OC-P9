@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Inscription</h2>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type='submit'>S'inscrire</button>
-</form>
+<div class='container'>
+    <h2>Inscription</h2>
+    {% if errors %}
+    <div class="errors">
+        {% for error in errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type='submit'>S'inscrire</button>
+    </form>
+</div>
 
 {% endblock content %}

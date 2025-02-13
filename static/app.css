@@ -4,36 +4,100 @@ body {
 }
 
 nav {
-    vertical-align: middle;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     color: rgb(55, 55, 55);
     font-size: 20px;
     font-weight: bold;
-    /* background: linear-gradient(90deg, #2cd4d9 0%, #5333ed 50%, #2cd4d9 100%); */
     background-color: rgb(93, 187, 223);
-    padding: 10px 0;
-    height: 50px;
+    height: 70px;
+    align-items: center;
+    overflow: hidden;
 }
 
-nav div {
-    padding: inherit;
+nav div:nth-child(2) {
+    text-align: center;
+}
+
+nav div:nth-child(3) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav div:nth-child(2) a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav div:nth-child(3) a {
+    font-size: 14px;
+    color: inherit;
+    text-decoration: none;
+    padding: 27px;
+}
+
+nav div:nth-child(3) a:hover {
+    background-color: rgb(180, 229, 242);
+}
+
+input {
+    padding: 10px 0;
+    margin: 10px 0;
+    border: 2px solid black;
+    width: 20%;
+    min-width: 200px;
+    text-align: center;
+}
+
+input::placeholder {
+    color: black;
+    text-align: center;
+    font-size: 16px;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     padding-top: 50px;
+}
+
+.container, #connection {
+    display: block;
+    text-align: center;
+    align-items: center;
+}
+
+.container h2 {
+    text-align: center;
 }
 
 .container div {
     text-align: center;
 }
 
-#subscribe > p, #connection > p {
-    font-size: 24px;
+.container_home form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#subscribe a, #connection button {
+.container_home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#subscribe, #connection {
+    display: block;
+}
+
+#subscribe > p, #connection > p {
+    font-size: 24px;
+    width: inherit;
+}
+
+#connection form {
+    display: block;
+}
+
+.container button, #subscribe a {
     text-decoration: none;
     color: black;
     font-size: medium;
@@ -43,19 +107,18 @@ nav div {
     border: 2px black solid;
     border-radius: 8px;
     cursor: pointer;
+    width: inherit;
 }
 
 #connection input {
-    padding: 10px 0;
-    margin: 10px 0;
-    border: 2px solid black;
     width: 50%;
-    min-width: 200px;
-    text-align: center;
 }
 
-#connection input::placeholder {
-    color: black;
-    text-align: center;
-    font-size: 16px;
+.errorList {
+    list-style-type: none;
+    color: red;
+}
+
+form .errorList {
+    display: none;
 }

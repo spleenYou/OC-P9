@@ -17,12 +17,24 @@ class LoginForm(forms.Form):
 
 
 class SignupForm(UserCreationForm):
+    email = forms.EmailField(
+        max_length=63,
+        label=False,
+        widget=forms.TextInput(attrs={'placeholder': 'Adresse email'})
+    )
+    password1 = forms.CharField(
+        max_length=63,
+        label=False,
+        widget=forms.PasswordInput(attrs={'placeholder': 'Mot de passe'})
+    )
+    password2 = forms.CharField(
+        max_length=63,
+        label=False,
+        widget=forms.PasswordInput(attrs={'placeholder': 'Confirmation du mot de passe'})
+    )
+
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
         fields = {
-            'username',
             'email',
-            'first_name',
-            'last_name',
-            'role',
         }
