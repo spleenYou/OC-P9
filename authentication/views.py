@@ -6,7 +6,7 @@ from . import forms
 
 def login_page(request):
     if request.user.is_authenticated:
-        return redirect('test')
+        return redirect('home')
     form = forms.LoginForm()
     tab_error = []
     if request.method == 'POST':
@@ -18,7 +18,7 @@ def login_page(request):
             )
             if user is not None:
                 login(request, user)
-                return redirect('test')
+                return redirect('home')
             else:
                 tab_error.append('Identifiants invalides')
         else:
@@ -35,7 +35,7 @@ def signup_page(request):
         form = forms.SignupForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('test')
+            return redirect('home')
         else:
             errors = form.errors
             for error in errors:
