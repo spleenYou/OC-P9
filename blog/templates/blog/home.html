@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<p>Coucou {{ user.username }}</p>
-
+<id class='add_buttons'>
+    <a href="{% url 'add_ticket' %}">Demander une critique</a>
+    <a href="{% url 'add_ticket' %}">Créer une critique</a>
+</id>
 {% endblock content %}

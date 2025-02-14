@@ -40,6 +40,11 @@ nav div:nth-child(3) a:hover {
     background-color: rgb(180, 229, 242);
 }
 
+section {
+    display: grid;
+    justify-items: center;
+}
+
 input {
     padding: 10px 0;
     margin: 10px 0;
@@ -57,12 +62,12 @@ input::placeholder {
 
 .container {
     padding-top: 50px;
+    width: 100%;
 }
 
 .container, #connection {
     display: block;
     text-align: center;
-    align-items: center;
 }
 
 .container h2 {
@@ -73,15 +78,16 @@ input::placeholder {
     text-align: center;
 }
 
+.container_home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+}
+
 .container_home form {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.container_home {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
 }
 
 #subscribe, #connection {
@@ -97,7 +103,7 @@ input::placeholder {
     display: block;
 }
 
-.container button, #subscribe a {
+.container button, #subscribe a, .add_ticket a, .add_buttons a, .button {
     text-decoration: none;
     color: black;
     font-size: medium;
@@ -107,7 +113,7 @@ input::placeholder {
     border: 2px black solid;
     border-radius: 8px;
     cursor: pointer;
-    width: inherit;
+    width: fit-content;
 }
 
 #connection input {
@@ -121,4 +127,79 @@ input::placeholder {
 
 form .errorList {
     display: none;
+}
+
+.add_ticket {
+    display: grid;
+    padding-top: 20px;
+    width: 50%;
+}
+
+.add_ticket h2 {
+    font-weight: normal;
+}
+
+.add_ticket div {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.add_ticket div label {
+    text-align: left;
+    margin: 30px 0 10px 0;
+}
+
+.add_ticket div:nth-child(1) label {
+    margin-top: 0;
+}
+
+.add_ticket div input, .add_ticket div textarea {
+    width: auto;
+    border: 1px black solid;
+    margin: 0;
+}
+
+.add_ticket form {
+    display: grid;
+}
+
+.add_ticket #id_title, .add_ticket #id_description {
+    text-align: start;
+    padding-left: 10px;
+}
+
+.add_ticket #id_description {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.add_ticket a {
+    justify-self: right;
+    width: fit-content;
+    margin-top: 20px;
+    padding: 10px 30px;
+}
+
+.add_ticket #id_image {
+    width: 50%;
+    border-radius: 8px;
+}
+
+.add_buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.add_buttons a {
+    margin-top: 40px;
+    width: fit-content;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.add_ticket div label:nth-child(2) {
+    margin: 0;
 }
