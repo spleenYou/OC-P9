@@ -61,7 +61,7 @@ input::placeholder {
 }
 
 .container {
-    padding-top: 50px;
+    padding-top: 40px;
     width: 100%;
 }
 
@@ -247,6 +247,7 @@ form .errorList {
 
 .suscribe {
     width: 40%;
+    min-width: 400px;
 }
 
 .suscribe input {
@@ -270,7 +271,7 @@ form .errorList {
 .suscribe table td:nth-child(2) {
     text-align: center;
     width: 20%;
-    min-width: 108px;
+    min-width: 120px;
 }
 
 .suscribe table a {
