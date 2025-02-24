@@ -61,9 +61,9 @@ def subscribe(request):
 
 
 @login_required
-def unsuscribe(request, followed_id):
+def unsubscribe(request, followed_id):
     followed_user = models.UserFollows.objects.filter(id=followed_id)[0]
     if request.method == 'POST':
         followed_user.delete()
         return redirect('subscribe')
-    return render(request, 'blog/unsuscribe.html', {'followed_user': followed_user})
+    return render(request, 'blog/unsubscribe.html', {'followed_user': followed_user})
