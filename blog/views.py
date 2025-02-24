@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+# from django.db.models import Q
 
+from authentication.models import User
 from . import forms, models
 
 
@@ -52,12 +54,23 @@ def show_my_posts(request):
 
 @login_required
 def subscribe(request):
+    error_text = None
+    if request.method == 'POST':
+        try:
+            user_to_follow = User.objects.get(username=request.POST.get('username'))
+            user_follows = models.UserFollows()
+            user_follows.user = request.user
+            user_follows.followed_user = user_to_follow
+            user_follows.save()
+        except User.DoesNotExist:
+            error_text = f"L'utilisateur '{request.POST.get('username')}' n'existe pas"
     list_followed_users = models.UserFollows.objects.filter(user=request.user)
     list_users_following_you = models.UserFollows.objects.filter(followed_user=request.user)
     return render(request, 'blog/subscribe.html', {
         'list_followed_users': list_followed_users,
-        'list_users_following_you': list_users_following_you}
-    )
+        'list_users_following_you': list_users_following_you,
+        'error_text': error_text,
+    })
 
 
 @login_required

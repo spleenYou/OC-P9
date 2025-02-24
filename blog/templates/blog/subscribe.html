@@ -2,10 +2,14 @@
 
 {% block content %}
 <div class="container suscribe">
-    <form method="post">
-        <h3>Suivre d'autres utilisateurs</h3>
-        <input type="text" name="username" id="username" placeholder="Nom d'utilisateur">
-        <button>Envoyer</button>
+    {% if error_text %}
+        <p class='errorList'>{{ error_text }}</p>
+    {% endif %}
+    <h2>Suivre d'autres utilisateurs</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" id="username" value="" placeholder="Nom d'utilisateur" required>
+        <button type='submit'>Envoyer</button>
     </form>
     <h2>Abonnements</h2>
         <table>

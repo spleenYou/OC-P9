@@ -264,6 +264,7 @@ form .errorList {
 
 .suscribe table td:nth-child(1) {
     text-align: center;
+    padding: 4px 0;
 }
 
 .suscribe table td:nth-child(2) {
