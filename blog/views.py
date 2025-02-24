@@ -24,6 +24,12 @@ def add_ticket(request):
 
 
 @login_required
+def show_my_posts(request):
+    my_tickets = models.Ticket.objects.filter(user=request.user)
+    return render(request, 'blog/my_posts.html', {'tickets': my_tickets})
+
+
+@login_required
 def del_ticket(request):
     pass
 

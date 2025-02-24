@@ -29,6 +29,7 @@ urlpatterns = [
     path('home/', blog.views.home, name='home'),
     path('logout/', authentication.views.logout_user, name="logout"),
     path('ticket/add/', blog.views.add_ticket, name='add_ticket'),
+    path('my_posts/', blog.views.show_my_posts, name='my_posts'),
 ]
 
 if settings.DEBUG:
