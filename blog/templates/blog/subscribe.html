@@ -11,8 +11,8 @@
         <table>
         {% for followed_user in list_followed_users %}
             <tr>
-                <td>{{ followed_user }}</td>
-                <td><a href="">Se désabonner</a></td>
+                <td>{{ followed_user.followed_user }}</td>
+                <td><a href="{% url 'unsuscribe' followed_user.id %}">Se désabonner</a></td>
             </tr>
         {% endfor %}
         </table>
@@ -20,7 +20,7 @@
         <table>
             {% for user_following_you in list_users_following_you %}
                 <tr>
-                    <td>{{ user_following_you }}</td>
+                    <td>{{ user_following_you.user }}</td>
                 </tr>
             {% endfor %}
         </table>

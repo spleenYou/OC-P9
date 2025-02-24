@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Désabonnement</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>Souhaitez-vous vraiment vous désabonner de {{ followed_user.followed_user }}</p>
+        <button>Se désabonner</button>
+    </form>
+</div>
+{% endblock content %}

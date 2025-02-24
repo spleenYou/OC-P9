@@ -32,7 +32,8 @@ urlpatterns = [
     path('ticket/<int:ticket_id>/update/', blog.views.update_ticket, name='update_ticket'),
     path('ticket/<int:ticket_id>/del/', blog.views.del_ticket, name='del_ticket'),
     path('my_posts/', blog.views.show_my_posts, name='my_posts'),
-    path('subscribe/', blog.views.subscribe, name='subscribe')
+    path('subscribe/', blog.views.subscribe, name='subscribe'),
+    path('unsubscribe/<int:followed_id>/', blog.views.unsuscribe, name='unsuscribe'),
 ]
 
 if settings.DEBUG:
