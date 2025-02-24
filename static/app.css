@@ -204,3 +204,34 @@ form .errorList {
 .add_ticket div label:nth-child(2) {
     margin: 0;
 }
+
+.tickets {
+    display: grid;
+    width: 50%;
+    min-width: 600px;
+}
+
+.ticket {
+    display: grid;
+    row-gap: 20px;
+    border: 2px solid rgb(55, 55, 55);
+    width: 60%;
+    margin-bottom: 40px;
+    padding: 10px 0;
+    justify-self: center;
+}
+
+.ticket span, .ticket button {
+    justify-self: right;
+    margin-right: 20px;
+}
+
+.ticket div {
+    justify-self: left;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.ticket img {
+    justify-self: center;
+}

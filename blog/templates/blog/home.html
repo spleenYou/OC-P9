@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<id class='add_buttons'>
+<div class='add_buttons'>
     <a href="{% url 'add_ticket' %}">Demander une critique</a>
     <a href="{% url 'add_ticket' %}">Créer une critique</a>
-</id>
-<id class='container'>
-    <p>Critique</p>
-</id>
+</div>
+<div class='container tickets'>
+    {% for ticket in tickets %}
+        <div class='ticket'>
+            <span>{{ ticket.time_created }}</span>
+            {% if ticket.user == user %}
+                <div>Vous avez demandé une critique</div>
+            {% else %}
+                <div>{{ ticket.user }} a demandé une critique</div>
+            {% endif %}
+            <div>{{ ticket.title }}</div>
+            <div>{{ ticket.description }}</div>
+            <img src={{ ticket.image.url }}/>
+            {% if ticket.user != user %}
+                <button>Créer une critique</button>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
 {% endblock content %}
