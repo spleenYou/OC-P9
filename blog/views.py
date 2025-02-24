@@ -52,5 +52,13 @@ def show_my_posts(request):
 
 @login_required
 def subscribe(request):
-    list_user_follows = models.UserFollows.objects.all()
-    return render(request, 'blog/subscribe.html', {'list_user_follows': list_user_follows})
+    list_followed_users = models.UserFollows.objects.filter(user=request.user)
+    list_followed_users = list(follow_user.followed_user for follow_user in list_followed_users)
+    list_users_following_you = models.UserFollows.objects.filter(followed_user=request.user)
+    list_users_following_you = list(user_following_you.user for user_following_you in list_users_following_you)
+    print(list_followed_users)
+    print(list_users_following_you)
+    return render(request, 'blog/subscribe.html', {
+        'list_followed_users': list_followed_users,
+        'list_users_following_you': list_users_following_you}
+    )

@@ -8,10 +8,8 @@ class User(admin.ModelAdmin):
         'is_active',
         'username',
         'email',
-        'role',
     )
     list_filter = (
-        'role',
         'is_active',
     )
     search_fields = ('username', 'email')

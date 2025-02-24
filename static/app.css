@@ -245,16 +245,34 @@ form .errorList {
     justify-self: center;
 }
 
-/* #image-clear_id {
-    display: none;
+.suscribe {
+    width: 40%;
 }
 
-#image-clear_id::before {
-    width: 10px;
-    height: 10px;
-    background-color: brown;
+.suscribe input {
+    width: 40%;
 }
 
-.update_ticket label[for=image-clear_id] {
-    margin: 0;
-} */
+.suscribe table, .suscribe th, .suscribe td {
+    border-collapse: collapse;
+    border: 1px solid rgb(55, 55, 55);
+}
+
+.suscribe table {
+    width: 100%;
+}
+
+.suscribe table td:nth-child(1) {
+    text-align: center;
+}
+
+.suscribe table td:nth-child(2) {
+    text-align: center;
+    width: 20%;
+    min-width: 108px;
+}
+
+.suscribe table a {
+    color: black;
+    text-decoration: none;
+}

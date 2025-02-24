@@ -59,8 +59,10 @@ class Review(admin.ModelAdmin):
 class UserFollows(admin.ModelAdmin):
     list_display = (
         'user',
+        'followed_user',
     )
     list_filter = (
         'user',
+        'followed_user',
     )
     search_fields = ['followed_user']

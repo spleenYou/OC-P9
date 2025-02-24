@@ -1,13 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for user_follow in list_user_follows %}
-    {% if user_follow.user == user %}
-        <p>{{ user_follow.user }}</p>
-    {% else %}
-        <p>{{ user_follow.user }}</p>
-    {% endif %}
-{% endfor %}
 <div class="container suscribe">
     <form method="post">
         <h3>Suivre d'autres utilisateurs</h3>
@@ -15,6 +8,21 @@
         <button>Envoyer</button>
     </form>
     <h2>Abonnements</h2>
+        <table>
+        {% for followed_user in list_followed_users %}
+            <tr>
+                <td>{{ followed_user }}</td>
+                <td><a href="">Se désabonner</a></td>
+            </tr>
+        {% endfor %}
+        </table>
     <h2>Abonnés</h2>
+        <table>
+            {% for user_following_you in list_users_following_you %}
+                <tr>
+                    <td>{{ user_following_you }}</td>
+                </tr>
+            {% endfor %}
+        </table>
 </div>
 {% endblock content %}
