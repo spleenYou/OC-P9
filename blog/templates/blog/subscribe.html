@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for user_follow in list_user_follows %}
+    {% if user_follow.user == user %}
+        <p>{{ user_follow.user }}</p>
+    {% else %}
+        <p>{{ user_follow.user }}</p>
+    {% endif %}
+{% endfor %}
+<div class="container suscribe">
+    <form method="post">
+        <h3>Suivre d'autres utilisateurs</h3>
+        <input type="text" name="username" id="username" placeholder="Nom d'utilisateur">
+        <button>Envoyer</button>
+    </form>
+    <h2>Abonnements</h2>
+    <h2>Abonnés</h2>
+</div>
+{% endblock content %}

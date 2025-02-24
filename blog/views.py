@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-# from django.db.models import Q
+
 from . import forms, models
 
 
@@ -48,3 +48,9 @@ def update_ticket(request, ticket_id):
 def show_my_posts(request):
     my_tickets = models.Ticket.objects.filter(user=request.user)
     return render(request, 'blog/my_posts.html', {'tickets': my_tickets})
+
+
+@login_required
+def subscribe(request):
+    list_user_follows = models.UserFollows.objects.all()
+    return render(request, 'blog/subscribe.html', {'list_user_follows': list_user_follows})
