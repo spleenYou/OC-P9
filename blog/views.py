@@ -20,13 +20,7 @@ def add_ticket(request):
             ticket.user = request.user
             ticket.save()
             return redirect('home')
-    return render(request, 'blog/add_ticket.html', {'form': form, 'action': 'Créer'})
-
-
-@login_required
-def show_my_posts(request):
-    my_tickets = models.Ticket.objects.filter(user=request.user)
-    return render(request, 'blog/my_posts.html', {'tickets': my_tickets})
+    return render(request, 'blog/add_ticket.html', {'form': form})
 
 
 @login_required
@@ -39,5 +33,18 @@ def del_ticket(request, ticket_id):
 
 
 @login_required
-def update_ticket(request):
-    pass
+def update_ticket(request, ticket_id):
+    ticket = models.Ticket.objects.get(id=ticket_id)
+    form = forms.AddTicketForm(label_suffix='', instance=ticket)
+    if request.method == 'POST':
+        form = forms.AddTicketForm(request.POST, request.FILES)
+        if form.is_valid():
+            ticket.save()
+            return redirect('my_posts')
+    return render(request, 'blog/update_ticket.html', {'form': form})
+
+
+@login_required
+def show_my_posts(request):
+    my_tickets = models.Ticket.objects.filter(user=request.user)
+    return render(request, 'blog/my_posts.html', {'tickets': my_tickets})

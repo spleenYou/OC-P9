@@ -1,2 +1,5 @@
-<label class="button" for="id_{{ widget.name }}">Télécharger fichier</label>
-<input type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+{% if widget.is_image %}
+<p>Image actuelle :</p>
+    <img src="{{ widget.value.url }}" alt="{{ widget.value }}">
+{% endif %}
+<input type="{{ widget.type }}" name="{{ widget.name }}"{% if widget.value != None %} value="{{ widget.value }}"{% endif %}{% include "django/forms/widgets/attrs.html" %}>

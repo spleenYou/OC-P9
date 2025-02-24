@@ -1,11 +1,16 @@
 from django import forms
+from django.db.models.fields.files import ImageFieldFile
 from . import models
 
-from django.forms.widgets import ClearableFileInput
 
-
-class ImageFieldWidgetWithPreview(ClearableFileInput):
+class CustomImageFieldWidget(forms.ClearableFileInput):
     template_name = 'ImageField.html'
+
+    def get_context(self, name, value, attrs, **kwargs):
+        context = super().get_context(name, value, attrs)
+        print(context)
+        context['widget']['is_image'] = isinstance(value, ImageFieldFile)
+        return context
 
 
 class AddTicketForm(forms.ModelForm):
@@ -20,6 +25,6 @@ class AddTicketForm(forms.ModelForm):
         labels = {
             'title': "Titre"
         }
-        # widgets = {
-        #     'image': ImageFieldWidgetWithPreview()
-        # }
+        widgets = {
+            'image': CustomImageFieldWidget()
+        }

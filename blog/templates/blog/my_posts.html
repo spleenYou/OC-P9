@@ -7,10 +7,10 @@
             <span>{{ ticket.time_created }}</span>
             <div>{{ ticket.title }}</div>
             <div>{{ ticket.description }}</div>
-            <img src={{ ticket.image.url }}/>
+            <img src={{ ticket.image.url }}>
             <span>
-                <a class='button'>Modifier</a>
-                <a href='{% url 'del_ticket' ticket.id %}' class='button'>Supprimer</a>
+                <a href="{% url 'update_ticket' ticket.id %}" class='button'>Modifier</a>
+                <a href="{% url 'del_ticket' ticket.id %}" class='button'>Supprimer</a>
             </span>
         </div>
     {% endfor %}

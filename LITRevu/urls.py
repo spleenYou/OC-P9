@@ -29,6 +29,7 @@ urlpatterns = [
     path('home/', blog.views.home, name='home'),
     path('logout/', authentication.views.logout_user, name="logout"),
     path('ticket/add/', blog.views.add_ticket, name='add_ticket'),
+    path('ticket/<int:ticket_id>/update/', blog.views.update_ticket, name='update_ticket'),
     path('ticket/<int:ticket_id>/del/', blog.views.del_ticket, name='del_ticket'),
     path('my_posts/', blog.views.show_my_posts, name='my_posts'),
 ]

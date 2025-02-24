@@ -205,6 +205,11 @@ form .errorList {
     margin: 0;
 }
 
+.update_ticket form div:nth-child(4) {
+    justify-items: left;
+    row-gap: 10px;
+}
+
 .tickets {
     display: grid;
     width: 50%;
@@ -239,3 +244,17 @@ form .errorList {
 .ticket img {
     justify-self: center;
 }
+
+/* #image-clear_id {
+    display: none;
+}
+
+#image-clear_id::before {
+    width: 10px;
+    height: 10px;
+    background-color: brown;
+}
+
+.update_ticket label[for=image-clear_id] {
+    margin: 0;
+} */
