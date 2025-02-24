@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 import blog.views
 import authentication.views
 
@@ -28,3 +30,6 @@ urlpatterns = [
     path('logout/', authentication.views.logout_user, name="logout"),
     path('ticket/add/', blog.views.add_ticket, name='add_ticket'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -20,6 +20,6 @@ class AddTicketForm(forms.ModelForm):
         labels = {
             'title': "Titre"
         }
-        widgets = {
-            'image': ImageFieldWidgetWithPreview()
-        }
+        # widgets = {
+        #     'image': ImageFieldWidgetWithPreview()
+        # }

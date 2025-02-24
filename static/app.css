@@ -103,7 +103,7 @@ input::placeholder {
     display: block;
 }
 
-.container button, #subscribe a, .add_ticket a, .add_buttons a, .button {
+.container button, #subscribe a, .add_ticket a, .add_buttons a, .button, #id_image::file-selector-button {
     text-decoration: none;
     color: black;
     font-size: medium;
@@ -168,21 +168,21 @@ form .errorList {
     padding-left: 10px;
 }
 
-.add_ticket #id_description {
+.add_ticket {
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-.add_ticket a {
+#id_description {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.add_ticket button {
     justify-self: right;
     width: fit-content;
     margin-top: 20px;
     padding: 10px 30px;
-}
-
-.add_ticket #id_image {
-    width: 50%;
-    border-radius: 8px;
 }
 
 .add_buttons {
@@ -196,8 +196,9 @@ form .errorList {
     width: fit-content;
 }
 
-input[type='file'] {
-    display: none;
+#id_image {
+    width: fit-content;
+    border: none;
 }
 
 .add_ticket div label:nth-child(2) {

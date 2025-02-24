@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from . import forms
 
@@ -10,12 +10,22 @@ def home(request):
 
 @login_required
 def add_ticket(request):
-    make_review = False
     form = forms.AddTicketForm(label_suffix='')
-    if 'make_review' in request.method:
-        make_review = True
     if request.method == 'POST':
-        form = forms.AddTicketForm(request.POST, label_suffix='')
+        form = forms.AddTicketForm(request.POST, request.FILES)
         if form.is_valid():
-            pass
-    return render(request, 'blog/add_ticket.html', {'form': form, 'make_review': make_review})
+            ticket = form.save(commit=False)
+            ticket.user = request.user
+            ticket.save()
+            return redirect('home')
+    return render(request, 'blog/add_ticket.html', {'form': form, 'action': 'Créer'})
+
+
+@login_required
+def del_ticket(request):
+    pass
+
+
+@login_required
+def update_ticket(request):
+    pass

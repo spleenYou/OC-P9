@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
+from PIL import Image
 
 
 class Ticket(models.Model):
@@ -16,6 +17,15 @@ class Ticket(models.Model):
     class Meta:
         verbose_name = "Le ticket"
         verbose_name_plural = 'Les tickets'
+
+    def resize_image(self):
+        image = Image.open(self.image)
+        image.thumbnail((300, 300))
+        image.save(self.image.path)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.resize_image()
 
 
 class Review(models.Model):
