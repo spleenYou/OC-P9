@@ -226,6 +226,10 @@ form .errorList {
     margin-right: 20px;
 }
 
+.ticket span:last-child {
+    margin-bottom: 10px;
+}
+
 .ticket div {
     justify-self: left;
     margin-left: 20px;

@@ -9,7 +9,8 @@
             <div>{{ ticket.description }}</div>
             <img src={{ ticket.image.url }}/>
             <span>
-                <button>Modifier</button><button>Supprimer</button>
+                <a class='button'>Modifier</a>
+                <a href='{% url 'del_ticket' ticket.id %}' class='button'>Supprimer</a>
             </span>
         </div>
     {% endfor %}

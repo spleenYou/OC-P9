@@ -30,8 +30,12 @@ def show_my_posts(request):
 
 
 @login_required
-def del_ticket(request):
-    pass
+def del_ticket(request, ticket_id):
+    ticket = models.Ticket.objects.get(id=ticket_id)
+    if request.method == 'POST':
+        ticket.delete()
+        return redirect('my_posts')
+    return render(request, 'blog/del_ticket.html', {'ticket': ticket})
 
 
 @login_required

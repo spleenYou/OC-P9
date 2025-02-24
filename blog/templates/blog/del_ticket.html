@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container add_ticket'>
+        <form method='post' enctype=multipart/form-data>
+            {% csrf_token %}
+            <p>Confirmer vous la suppression de la demande de critique suivante ?</p>
+            <p>Titre : {{ ticket.title }}</p>
+        <button type='submit'>Supprimer</button>
+    </form>
+</div>
+{% endblock content %}
