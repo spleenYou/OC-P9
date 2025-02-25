@@ -82,3 +82,10 @@ def unsubscribe(request, followed_id):
         followed_user.delete()
         return redirect('subscribe')
     return render(request, 'blog/unsubscribe.html', {'followed_user': followed_user})
+
+
+@login_required
+def add_review(request):
+    form_ticket = forms.AddTicketForm(label_suffix='')
+    form_review = forms.AddReviewForm(label_suffix='')
+    return render(request, 'blog/add_review.html', {'form_review': form_review, 'form_ticket': form_ticket})

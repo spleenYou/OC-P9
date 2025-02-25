@@ -3,7 +3,7 @@
 {% block content %}
 <div class='add_buttons'>
     <a href="{% url 'add_ticket' %}">Demander une critique</a>
-    <a href="{% url 'add_ticket' %}">Créer une critique</a>
+    <a href="{% url 'add_review' %}">Créer une critique</a>
 </div>
 <div class='container tickets'>
     {% for ticket in tickets %}

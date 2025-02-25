@@ -129,22 +129,22 @@ form .errorList {
     display: none;
 }
 
-.add_ticket {
+.add_ticket, .add_review {
     display: grid;
     padding-top: 20px;
     width: 50%;
 }
 
-.add_ticket h2 {
+.add_ticket h2, .add_review h2 {
     font-weight: normal;
 }
 
-.add_ticket div {
+.add_ticket div, .add_review div {
     display: grid;
     grid-template-columns: 1fr;
 }
 
-.add_ticket div label {
+.add_ticket div label, .add_review div label:not(.star_label) {
     text-align: left;
     margin: 30px 0 10px 0;
 }
@@ -153,9 +153,9 @@ form .errorList {
     margin-top: 0;
 }
 
-.add_ticket div input, .add_ticket div textarea {
+#id_title, #id_headline, #id_headline, #id_body {
     width: auto;
-    border: 1px black solid;
+    border: 1px rgb(55, 55, 55) solid;
     margin: 0;
 }
 
@@ -163,7 +163,7 @@ form .errorList {
     display: grid;
 }
 
-.add_ticket #id_title, .add_ticket #id_description {
+#id_title, #id_headline {
     text-align: start;
     padding-left: 10px;
 }
@@ -173,9 +173,8 @@ form .errorList {
     padding-bottom: 5px;
 }
 
-#id_description {
-    padding-top: 10px;
-    padding-bottom: 10px;
+#id_description, #id_body {
+    padding: 10px;
 }
 
 .add_ticket button {
@@ -277,4 +276,75 @@ form .errorList {
 .suscribe table a {
     color: black;
     text-decoration: none;
+}
+
+.ticket_in, .review_in {
+    border: 2px solid rgb(55, 55, 55);
+    padding: 10px;
+}
+
+.ticket_in span, .review_in span {
+    font-size: 18px;
+}
+
+.review_in {
+    margin: 20px 0;
+}
+
+.rating {
+    position: relative;
+    line-height: 1px;
+}
+
+.star_label {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.star_label:nth-child(1) {
+    z-index: 5;
+}
+
+.star_label:nth-child(2) {
+    z-index: 4;
+}
+
+.star_label:nth-child(3) {
+    z-index: 3;
+}
+
+.star_label:nth-child(4) {
+    z-index: 2;
+}
+
+.star_label:nth-child(5) {
+    z-index: 1;
+}
+
+.star_label input {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+
+.star_label .icon {
+    /* float: left; */
+    color: transparent;
+}
+
+.star_label:last-child .icon {
+    color: rgb(55, 55, 55);
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+    color: rgb(93, 187, 223);
+}
+
+.star_label input:focus:not(:checked) ~ .icon:last-child {
+    color: rgb(55, 55, 55);
+    text-shadow: 0 0 5px rgb(93, 187, 223);
 }

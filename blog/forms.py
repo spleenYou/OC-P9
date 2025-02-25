@@ -27,3 +27,30 @@ class AddTicketForm(forms.ModelForm):
         widgets = {
             'image': CustomImageFieldWidget()
         }
+
+
+class CustomRatingFieldWidget(forms.ClearableFileInput):
+    template_name = 'PositiveSmallField.html'
+
+    def get_context(self, name, value, attrs, **kwargs):
+        context = super().get_context(name, value, attrs)
+        return context
+
+
+class AddReviewForm(forms.ModelForm):
+
+    class Meta:
+        model = models.Review
+        fields = [
+            'headline',
+            'rating',
+            'body',
+        ]
+        labels = {
+            'rating': 'Notation',
+            'headline': 'Titre',
+            'body': 'Critique',
+        }
+        widgets = {
+            'rating': CustomRatingFieldWidget()
+        }
