@@ -9,6 +9,7 @@ from . import forms, models
 @login_required
 def home(request):
     tickets = models.Ticket.objects.all()
+    tickets = sorted(tickets, key=lambda x: x.time_created, reverse=True)
     return render(request, 'blog/home.html', {'tickets': tickets})
 
 
@@ -49,6 +50,7 @@ def update_ticket(request, ticket_id):
 @login_required
 def show_my_posts(request):
     my_tickets = models.Ticket.objects.filter(user=request.user)
+    my_tickets = sorted(my_tickets, key=lambda x: x.time_created, reverse=True)
     return render(request, 'blog/my_posts.html', {'tickets': my_tickets})
 
 

@@ -8,7 +8,6 @@ class CustomImageFieldWidget(forms.ClearableFileInput):
 
     def get_context(self, name, value, attrs, **kwargs):
         context = super().get_context(name, value, attrs)
-        print(context)
         context['widget']['is_image'] = isinstance(value, ImageFieldFile)
         return context
 
