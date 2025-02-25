@@ -86,6 +86,24 @@ def unsubscribe(request, followed_id):
 
 @login_required
 def add_review(request):
+    if request.method == 'POST':
+        form_ticket = forms.AddTicketForm(request.POST, request.FILES)
+        data_review = {
+            'body': request.POST.get('body'),
+            'rating': int(request.POST.get('rating')),
+            'headline': request.POST.get('headline'),
+        }
+        print(data_review)
+        form_review = forms.AddReviewForm(data_review)
+        if form_ticket.is_valid() and form_review.is_valid():
+            ticket = form_ticket.save(commit=False)
+            ticket.user = request.user
+            review = form_review.save(commit=False)
+            review.ticket = ticket
+            review.user = request.user
+            ticket.save()
+            review.save()
+            return redirect('home')
     form_ticket = forms.AddTicketForm(label_suffix='')
     form_review = forms.AddReviewForm(label_suffix='')
     return render(request, 'blog/add_review.html', {'form_review': form_review, 'form_ticket': form_ticket})

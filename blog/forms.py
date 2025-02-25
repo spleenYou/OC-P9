@@ -29,10 +29,10 @@ class AddTicketForm(forms.ModelForm):
         }
 
 
-class CustomRatingFieldWidget(forms.ClearableFileInput):
+class CustomRatingFieldWidget(forms.NumberInput):
     template_name = 'PositiveSmallField.html'
 
-    def get_context(self, name, value, attrs, **kwargs):
+    def get_context(self, name, value, attrs):
         context = super().get_context(name, value, attrs)
         return context
 
