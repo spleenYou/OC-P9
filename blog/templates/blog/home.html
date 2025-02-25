@@ -7,20 +7,7 @@
 </div>
 <div class='container tickets'>
     {% for ticket in tickets %}
-        <div class='ticket'>
-            <span>{{ ticket.time_created }}</span>
-            {% if ticket.user == user %}
-                <div>Vous avez demandé une critique</div>
-            {% else %}
-                <div>{{ ticket.user }} a demandé une critique</div>
-            {% endif %}
-            <div>{{ ticket.title }}</div>
-            <div>{{ ticket.description }}</div>
-            <img src={{ ticket.image.url }}/>
-            {% if ticket.user != user %}
-                <button>Créer une critique</button>
-            {% endif %}
-        </div>
+        {% include 'blog/ticket_template.html' %}
     {% endfor %}
 </div>
 {% endblock content %}

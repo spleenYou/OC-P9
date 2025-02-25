@@ -3,10 +3,7 @@
 {% block content %}
 <div class='container add_ticket update_ticket'>
     <h2>Modifier une demande de critique</h2>
-        <form method='post' enctype=multipart/form-data>
-            {% csrf_token %}
-            {{ form }}
-        <button type='submit'>Envoyer</button>
+    {% include 'blog/ticket_form_template.html' %}
     </form>
 </div>
 {% endblock content %}

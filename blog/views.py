@@ -51,7 +51,7 @@ def update_ticket(request, ticket_id):
 def show_my_posts(request):
     my_tickets = models.Ticket.objects.filter(user=request.user)
     my_tickets = sorted(my_tickets, key=lambda x: x.time_created, reverse=True)
-    return render(request, 'blog/my_posts.html', {'tickets': my_tickets})
+    return render(request, 'blog/my_posts.html', {'tickets': my_tickets, 'allow_modification': True})
 
 
 @login_required
@@ -93,7 +93,6 @@ def add_review(request):
             'rating': int(request.POST.get('rating')),
             'headline': request.POST.get('headline'),
         }
-        print(data_review)
         form_review = forms.AddReviewForm(data_review)
         if form_ticket.is_valid() and form_review.is_valid():
             ticket = form_ticket.save(commit=False)

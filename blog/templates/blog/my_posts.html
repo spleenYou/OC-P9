@@ -3,16 +3,7 @@
 {% block content %}
 <div class='container tickets'>
     {% for ticket in tickets %}
-        <div class='ticket'>
-            <span>{{ ticket.time_created }}</span>
-            <div>{{ ticket.title }}</div>
-            <div>{{ ticket.description }}</div>
-            <img src={{ ticket.image.url }}>
-            <span>
-                <a href="{% url 'update_ticket' ticket.id %}" class='button'>Modifier</a>
-                <a href="{% url 'del_ticket' ticket.id %}" class='button'>Supprimer</a>
-            </span>
-        </div>
+        {% include 'blog/ticket_template.html' %}
     {% endfor %}
 </div>
 {% endblock content %}

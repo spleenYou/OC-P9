@@ -1,0 +1,12 @@
+<form method='post' enctype=multipart/form-data>
+    {% csrf_token %}
+    <div class='ticket_in'>
+        <span>Livre</span>
+        {{ form_ticket }}
+    </div>
+    <div class='review_in'>
+        <span>Critique</span>
+        {{ form_review }}
+    </div>
+    <button type='submit'>Envoyer</button>
+</form>
