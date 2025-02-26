@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block content %}
 <div class='add_buttons'>
@@ -6,8 +7,12 @@
     <a href="{% url 'add_review' %}">Créer une critique</a>
 </div>
 <div class='container tickets'>
-    {% for ticket in tickets %}
-        {% include 'blog/ticket_template.html' %}
+    {% for post in posts %}
+        {% if post|is_instance:"blog.Review" %}
+            {% include 'blog/review_template.html' %}
+        {% elif post|is_instance:"blog.Ticket" %}
+            {% include 'blog/ticket_template.html' %}
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock content %}

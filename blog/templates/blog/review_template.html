@@ -1,0 +1,17 @@
+<div class='review'>
+    <span>{{ post.time_created }}</span>
+    {% if post.user == user %}
+        <div>Vous avez écrit une critique</div>
+    {% else %}
+        <div>{{ post.user }} a écrit une critique</div>
+    {% endif %}
+    <div>{{ post.headline }} - 
+        <label class="star_rating">
+            {% for i in rating_range %}
+                <span class="icon {% if post.rating > i %}blue{% endif %}">★</span>
+            {% endfor %}
+          </label>
+    </div>
+    <div>{{ post.body }}</div>
+    {% include 'blog/ticket_template.html' %}
+</div>

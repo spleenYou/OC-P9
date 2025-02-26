@@ -215,17 +215,17 @@ form .errorList {
     min-width: 600px;
 }
 
-.ticket {
+.ticket, .review {
     display: grid;
     row-gap: 20px;
     border: 2px solid rgb(55, 55, 55);
-    width: 60%;
+    width: 80%;
     margin-bottom: 40px;
     padding: 10px 0;
     justify-self: center;
 }
 
-.ticket span, .ticket button {
+.ticket span, .ticket button, .review>span {
     justify-self: right;
     margin-right: 20px;
 }
@@ -234,7 +234,7 @@ form .errorList {
     margin-bottom: 10px;
 }
 
-.ticket div {
+.ticket div, .review div:not(:last-child) {
     justify-self: left;
     margin-left: 20px;
     font-size: 20px;
@@ -331,20 +331,30 @@ form .errorList {
 }
 
 .star_label .icon {
-    /* float: left; */
     color: transparent;
 }
 
-.star_label:last-child .icon {
+.star_label:last-child .icon, .star_rating .icon {
     color: rgb(55, 55, 55);
 }
 
 .rating:not(:hover) label input:checked ~ .icon,
-.rating:hover label:hover input ~ .icon {
+.rating:hover label:hover input ~ .icon,
+.star_rating .blue {
     color: rgb(93, 187, 223);
 }
 
 .star_label input:focus:not(:checked) ~ .icon:last-child {
     color: rgb(55, 55, 55);
     text-shadow: 0 0 5px rgb(93, 187, 223);
+}
+
+.review .ticket {
+    margin-bottom: 0;
+    margin-top: 10px;
+    width: 96%;
+}
+
+.review {
+    margin-bottom: 40px;
 }

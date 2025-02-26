@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 # from django.db.models import Q
+from itertools import chain
 
 from authentication.models import User
 from . import forms, models
@@ -9,8 +10,13 @@ from . import forms, models
 @login_required
 def home(request):
     tickets = models.Ticket.objects.all()
-    tickets = sorted(tickets, key=lambda x: x.time_created, reverse=True)
-    return render(request, 'blog/home.html', {'tickets': tickets})
+    reviews = models.Review.objects.all()
+    posts = sorted(chain(tickets, reviews), key=lambda x: x.time_created, reverse=True)
+    print(posts[0])
+    return render(request, 'blog/home.html', {
+        'posts': posts,
+        'rating_range': range(5),
+    })
 
 
 @login_required
