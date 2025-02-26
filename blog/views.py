@@ -12,7 +12,6 @@ def home(request):
     tickets = models.Ticket.objects.all()
     reviews = models.Review.objects.all()
     posts = sorted(chain(tickets, reviews), key=lambda x: x.time_created, reverse=True)
-    print(posts[0])
     return render(request, 'blog/home.html', {
         'posts': posts,
         'rating_range': range(5),
