@@ -10,7 +10,9 @@
     {% endif %}
     <div>{% firstof post.title post.ticket.title %}</div>
     <div>{% firstof post.description post.ticket.description %}</div>
+    {% if post.image.url or post.ticket.image.url %}
     <img src={% firstof post.image.url post.ticket.image.url %}>
+    {% endif %}
     {% if post.user != user and user|can_review:post and not form_review %}
         <a href="{% url 'answer_ticket' post.id %}" class='button'>Créer une critique</a>
     {% elif allow_modification and not post.body %}
