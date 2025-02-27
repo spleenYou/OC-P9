@@ -53,6 +53,26 @@ def update_ticket(request, ticket_id):
 
 
 @login_required
+def answer_ticket(request, ticket_id):
+    ticket = models.Ticket.objects.get(id=ticket_id)
+    if request.method == 'POST':
+        data_review = {
+            'body': request.POST.get('body'),
+            'rating': int(request.POST.get('rating')),
+            'headline': request.POST.get('headline'),
+        }
+        form_review = forms.AddReviewForm(data_review)
+        if form_review.is_valid():
+            review = form_review.save(commit=False)
+            review.user = request.user
+            review.ticket = ticket
+            review.save()
+            return redirect('home')
+    form_review = forms.AddReviewForm(label_suffix='')
+    return render(request, 'blog/answer_ticket.html', {'post': ticket, 'form_review': form_review})
+
+
+@login_required
 def show_my_posts(request):
     my_tickets = models.Ticket.objects.filter(user=request.user)
     my_tickets = sorted(my_tickets, key=lambda x: x.time_created, reverse=True)

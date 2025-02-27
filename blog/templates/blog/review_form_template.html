@@ -2,7 +2,11 @@
     {% csrf_token %}
     <div class='ticket_in'>
         <span>Livre</span>
+        {% if form_ticket %}
         {{ form_ticket }}
+        {% else %}
+        {% include 'blog/ticket_template.html' %}
+        {% endif %}
     </div>
     <div class='review_in'>
         <span>Critique</span>

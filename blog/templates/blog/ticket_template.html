@@ -1,7 +1,7 @@
 {% load custom_filters %}
 <div class='ticket'>
-    {% if not review %}
-    <span>{% firstof post.time_created post.ticket.time_created %}</span>
+    {% if not post.ticket.time_created and not form_review %}
+    <span>{{ post.time_created }}</span>
     {% endif %}
     {% if post.user == user and not post.ticket.user %}
         <div>Vous avez demandé une critique</div>
@@ -11,8 +11,8 @@
     <div>{% firstof post.title post.ticket.title %}</div>
     <div>{% firstof post.description post.ticket.description %}</div>
     <img src={% firstof post.image.url post.ticket.image.url %}/>
-    {% if post.user != user and user|can_review:post %}
-        <a class='button'>Créer une critique</a>
+    {% if post.user != user and user|can_review:post and not form_review %}
+        <a href="{% url 'answer_ticket' post.id %}" class='button'>Créer une critique</a>
     {% elif allow_modification %}
     <span>
         <a href="{% url 'update_ticket' post.id %}" class='button'>Modifier</a>
