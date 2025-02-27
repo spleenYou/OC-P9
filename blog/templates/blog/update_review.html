@@ -1,1 +1,8 @@
-update review
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container add_review'>
+    <h2>Modifier une critique</h2>
+    {% include 'blog/review_form_template.html' %}
+</div>
+{% endblock content %}

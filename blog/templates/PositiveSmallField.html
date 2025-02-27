@@ -1,28 +1,28 @@
 <div class="rating">
   <label class="star_label">
-    <input type="radio" name="{{ widget.name }}" value="1" required/>
+    <input type="radio" name="{{ widget.name }}" value="1" {% if widget.value == "1" %}checked{% endif %} required/>
     <span class="icon">★</span>
   </label>
   <label class="star_label">
-    <input type="radio" name="{{ widget.name }}" value="2" required/>
+    <input type="radio" name="{{ widget.name }}" value="2" {% if widget.value == "2" %}checked{% endif %} required/>
     <span class="icon">★</span>
     <span class="icon">★</span>
   </label>
   <label class="star_label">
-    <input type="radio" name="{{ widget.name }}" value="3" required/>
+    <input type="radio" name="{{ widget.name }}" value="3" {% if widget.value == "3" %}checked{% endif %} required/>
     <span class="icon">★</span>
     <span class="icon">★</span>
     <span class="icon">★</span>   
   </label>
   <label class="star_label">
-    <input type="radio" name="{{ widget.name }}" value="4" required/>
+    <input type="radio" name="{{ widget.name }}" value="4" {% if widget.value == "4" %}checked{% endif %} required/>
     <span class="icon">★</span>
     <span class="icon">★</span>
     <span class="icon">★</span>
     <span class="icon">★</span>
   </label>
   <label class="star_label">
-    <input type="radio" name="{{ widget.name }}" value="5" required/>
+    <input type="radio" name="{{ widget.name }}" value="5" {% if widget.value == "5" %}checked{% endif %} required/>
     <span class="icon">★</span>
     <span class="icon">★</span>
     <span class="icon">★</span>

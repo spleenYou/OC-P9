@@ -79,7 +79,11 @@ def show_my_posts(request):
     my_tickets = models.Ticket.objects.filter(user=request.user)
     my_reviews = models.Review.objects.filter(user=request.user)
     my_posts = sorted(chain(my_tickets, my_reviews), key=lambda x: x.time_created, reverse=True)
-    return render(request, 'blog/my_posts.html', {'posts': my_posts, 'allow_modification': True})
+    return render(request, 'blog/my_posts.html', {
+        'posts': my_posts,
+        'allow_modification': True,
+        'rating_range': range(5),
+    })
 
 
 @login_required
@@ -138,5 +142,18 @@ def add_review(request):
 
 @login_required
 def update_review(request, review_id):
-    print(review_id)
-    return render(request, 'blog/update_review.html')
+    review = models.Review.objects.get(id=review_id)
+    if request.method == 'POST':
+        form_review = forms.AddReviewForm(request.POST)
+        if form_review.is_valid():
+            review.headline = request.POST.get('headline')
+            review.rating = request.POST.get('rating')
+            review.body = request.POST.get('body')
+            review.save()
+            return redirect('my_posts')
+    form_review = forms.AddReviewForm(instance=review)
+    return render(request, 'blog/update_review.html', {
+        'form_review': form_review,
+        'post': review,
+        'rating_range': range(5),
+    })
