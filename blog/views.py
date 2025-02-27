@@ -56,7 +56,7 @@ def update_ticket(request, ticket_id):
 def show_my_posts(request):
     my_tickets = models.Ticket.objects.filter(user=request.user)
     my_tickets = sorted(my_tickets, key=lambda x: x.time_created, reverse=True)
-    return render(request, 'blog/my_posts.html', {'tickets': my_tickets, 'allow_modification': True})
+    return render(request, 'blog/my_posts.html', {'posts': my_tickets, 'allow_modification': True})
 
 
 @login_required

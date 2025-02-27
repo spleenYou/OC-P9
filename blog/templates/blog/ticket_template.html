@@ -15,8 +15,8 @@
         <button>Créer une critique</button>
     {% elif allow_modification %}
     <span>
-        <a href="{% url 'update_ticket' ticket.id %}" class='button'>Modifier</a>
-        <a href="{% url 'del_ticket' ticket.id %}" class='button'>Supprimer</a>
+        <a href="{% url 'update_ticket' post.id %}" class='button'>Modifier</a>
+        <a href="{% url 'del_ticket' post.id %}" class='button'>Supprimer</a>
     </span>
     {% endif %}
 </div>
