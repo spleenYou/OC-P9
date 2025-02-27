@@ -35,6 +35,7 @@ urlpatterns = [
     path('my_posts/', blog.views.show_my_posts, name='my_posts'),
     path('review/add/', blog.views.add_review, name='add_review'),
     path('review/<int:review_id>/update', blog.views.update_review, name='update_review'),
+    path('review/<int:review_id>/del', blog.views.del_review, name='del_review'),
     path('subscribe/', blog.views.subscribe, name='subscribe'),
     path('unsubscribe/<int:followed_id>/', blog.views.unsubscribe, name='unsubscribe'),
 ]

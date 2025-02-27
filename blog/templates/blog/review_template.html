@@ -17,7 +17,7 @@
     {% if post.ticket.title and allow_modification %}
     <div class='button_modification'>
         <a href="{% url 'update_review' post.id %}" class='button'>Modifier</a>
-        <a class='button'>Supprimer</a>
+        <a href="{% url 'del_review' post.id%}" class='button'>Supprimer</a>
     </div>
     {% endif %}
 </div>

@@ -49,6 +49,10 @@ def update_ticket(request, ticket_id):
     if request.method == 'POST':
         form = forms.AddTicketForm(request.POST, request.FILES)
         if form.is_valid():
+            ticket.title = request.POST.get('title')
+            ticket.description = request.POST.get('description')
+            if request.FILES['image']:
+                ticket.image = request.FILES['image']
             ticket.save()
             return redirect('my_posts')
     return render(request, 'blog/update_ticket.html', {'form': form})
@@ -157,3 +161,12 @@ def update_review(request, review_id):
         'post': review,
         'rating_range': range(5),
     })
+
+
+@login_required
+def del_review(request, review_id):
+    review = models.Review.objects.get(id=review_id)
+    if request.method == 'POST':
+        review.delete()
+        return redirect('my_posts')
+    return render(request, 'blog/del_review.html', {'review': review})

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container add_review'>
+        <form method='post'>
+            {% csrf_token %}
+            <p>Confirmez vous la suppression de cette critique ?</p>
+            <p>Titre : {{ review.headline }}</p>
+            <p>Critique : {{ review.body }}</p>
+        <button type='submit'>Supprimer</button>
+    </form>
+</div>
+{% endblock content %}
