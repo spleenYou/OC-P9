@@ -14,4 +14,10 @@
     </div>
     <div>{{ post.body }}</div>
     {% include 'blog/ticket_template.html' %}
+    {% if post.ticket.title and allow_modification %}
+    <div class='button_modification'>
+        <a class='button'>Modifier</a>
+        <a class='button'>Supprimer</a>
+    </div>
+    {% endif %}
 </div>

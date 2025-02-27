@@ -225,16 +225,16 @@ form .errorList {
     justify-self: center;
 }
 
-.ticket span, .ticket a, .review>span {
+.button_modification, .ticket a, .review a {
     justify-self: right;
     margin-right: 20px;
 }
 
-.ticket span:last-child {
+.button_modification {
     margin-bottom: 10px;
 }
 
-.ticket div, .review div:not(:last-child) {
+.ticket div:not(.button_modification), .review div:not(.ticket):not(.button_modification) {
     justify-self: left;
     margin-left: 20px;
     font-size: 20px;

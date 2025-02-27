@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block content %}
 <div class='container tickets'>
     {% for post in posts %}
-        {% include 'blog/ticket_template.html' %}
+        {% if post|is_instance:"blog.Review" %}
+            {% include 'blog/review_template.html' %}
+        {% elif post|is_instance:"blog.Ticket" %}
+            {% include 'blog/ticket_template.html' %}
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock content %}
