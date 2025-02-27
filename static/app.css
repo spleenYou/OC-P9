@@ -225,7 +225,7 @@ form .errorList {
     justify-self: center;
 }
 
-.ticket span, .ticket button, .review>span {
+.ticket span, .ticket a, .review>span {
     justify-self: right;
     margin-right: 20px;
 }

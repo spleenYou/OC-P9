@@ -111,3 +111,9 @@ def add_review(request):
     form_ticket = forms.AddTicketForm(label_suffix='')
     form_review = forms.AddReviewForm(label_suffix='')
     return render(request, 'blog/add_review.html', {'form_review': form_review, 'form_ticket': form_ticket})
+
+
+@login_required
+def update_review(request, review_id):
+    print(review_id)
+    return render(request, 'blog/update_review.html')
