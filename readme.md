@@ -90,7 +90,7 @@ In your internet browser, go on this URL to see the login page
 http://127.0.0.1:8000
 ```
 
-You can create an account or test the website withone of the following login/password :
+It's possible to create an account or test the website with one of the following login/password :
 - SuperUser :
     - Login : spleen85
     - Password : SuperS3cret!!!
@@ -104,8 +104,14 @@ You can create an account or test the website withone of the following login/pas
     - Login : aurelie
     - Password : S3cret!!!
 
+### Navigation bar
+
+After logging in, there are some buttons to navigate on the website.
+
+- LITRevu: go on home page
+- Flux: go on home page
+- Posts: To manage your own tickets and reviews
+- Abonnements: To manage your followed users and see who follow you
+- Se déconnecter: To log out
+
 <img src="images/nav.png">
-
-### Homepage
-
-After logging in, you will be redirect to the home page where you will see your tickets, reviews and them of the users you follow.
