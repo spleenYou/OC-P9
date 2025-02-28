@@ -4,6 +4,8 @@ from .models import User
 
 @admin.register(User)
 class User(admin.ModelAdmin):
+    "Change the way users are displayed on the admin page"
+
     list_display = (
         'is_active',
         'username',
