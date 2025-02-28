@@ -1,15 +1,11 @@
 from django import forms
-from django.db.models.fields.files import ImageFieldFile
 from . import models
 
 
 class CustomImageFieldWidget(forms.ClearableFileInput):
-    template_name = 'ImageField.html'
+    "template name for change the way it will be display"
 
-    def get_context(self, name, value, attrs, **kwargs):
-        context = super().get_context(name, value, attrs)
-        context['widget']['is_image'] = isinstance(value, ImageFieldFile)
-        return context
+    template_name = 'ImageField.html'
 
 
 class AddTicketForm(forms.ModelForm):
@@ -30,11 +26,9 @@ class AddTicketForm(forms.ModelForm):
 
 
 class CustomRatingFieldWidget(forms.NumberInput):
-    template_name = 'PositiveSmallField.html'
+    "template name for change the way it will be display"
 
-    def get_context(self, name, value, attrs):
-        context = super().get_context(name, value, attrs)
-        return context
+    template_name = 'PositiveSmallField.html'
 
 
 class AddReviewForm(forms.ModelForm):

@@ -4,6 +4,8 @@ from .models import Ticket, Review, UserFollows
 
 @admin.register(Ticket)
 class Ticket(admin.ModelAdmin):
+    "Change the way tickets are displayed in admin page"
+
     fields = (
         'user',
         'title',
@@ -29,6 +31,8 @@ class Ticket(admin.ModelAdmin):
 
 @admin.register(Review)
 class Review(admin.ModelAdmin):
+    "Change the way reviews are displayed in admin page"
+
     fields = (
         'ticket',
         'user',
@@ -57,6 +61,8 @@ class Review(admin.ModelAdmin):
 
 @admin.register(UserFollows)
 class UserFollows(admin.ModelAdmin):
+    "Change the way followed users are displayed in admin page"
+
     list_display = (
         'user',
         'followed_user',
