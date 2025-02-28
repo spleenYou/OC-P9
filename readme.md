@@ -52,7 +52,7 @@ Install needed packages for the script.
 ```
 pip install -r requirements.txt
 ```
-## Use
+### Use
 
 ```
 python <script name>.py
@@ -71,7 +71,7 @@ Clone this repository
 git clone https://github.com/spleenYou/OC-P9.git
 ```
 
-## Use
+## Start server
 
 Change directory
 ```
@@ -83,14 +83,14 @@ And start running Django server
 python manage.py runserver
 ```
 
-## Go on website
+## Website
 
-In your internet browser, go on this URL to see the  login page
+In your internet browser, go on this URL to see the login page
 ```
 http://127.0.0.1:8000
 ```
 
-You can create an account or test the website with following login/password :
+You can create an account or test the website withone of the following login/password :
 - SuperUser :
     - Login : spleen85
     - Password : SuperS3cret!!!
@@ -103,3 +103,9 @@ You can create an account or test the website with following login/password :
     - Password : S3cret!!!
     - Login : aurelie
     - Password : S3cret!!!
+
+<img src="images/nav.png">
+
+### Homepage
+
+After logging in, you will be redirect to the home page where you will see your tickets, reviews and them of the users you follow.
