@@ -14,6 +14,9 @@ class Ticket(models.Model):
     time_created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = "Le ticket"
         verbose_name_plural = 'Les tickets'
