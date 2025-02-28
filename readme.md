@@ -108,10 +108,10 @@ It's possible to create an account or test the website with one of the following
 
 After logging in, there are some buttons to navigate on the website.
 
+<img src="images/nav.png"><br>
+
 - LITRevu: go on home page
 - Flux: go on home page
 - Posts: To manage your own tickets and reviews
 - Abonnements: To manage your followed users and see who follow you
 - Se déconnecter: To log out
-
-<img src="images/nav.png">
