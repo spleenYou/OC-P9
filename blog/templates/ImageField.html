@@ -1,5 +1,11 @@
-{% if widget.is_image %}
+{% if widget.value %}
 <p>Image actuelle :</p>
     <img src="{{ widget.value.url }}" alt="{{ widget.value }}">
+    <div class='clear_image'>
+        <input type='checkbox' id='clear_image' name="clear_image">
+        <label for='clear_image'>Effacer l'image</label>
+    </div>
+{% else %}
+<p>Pas d'image</p>
 {% endif %}
 <input type="{{ widget.type }}" name="{{ widget.name }}"{% if widget.value != None %} value="{{ widget.value }}"{% endif %}{% include "django/forms/widgets/attrs.html" %}>

@@ -49,6 +49,9 @@ def add_ticket(request):
             ticket.user = request.user
             ticket.save()
             return redirect('home')
+        else:
+            print('a')
+            print(form.errors)
     return render(request, 'blog/add_ticket.html', {'form': form})
 
 
@@ -88,10 +91,14 @@ def update_ticket(request, ticket_id):
     if request.method == 'POST':
         form = forms.AddTicketForm(request.POST, request.FILES)
         if form.is_valid():
+            # print(request.POST)
             ticket.title = request.POST.get('title')
             ticket.description = request.POST.get('description')
-            if request.FILES['image']:
-                ticket.image = request.FILES['image']
+            if request.FILES.get('image'):
+                ticket.image = request.FILES.get('image')
+            if request.POST.get('clear_image'):
+                ticket.image = None
+                print("a")
             ticket.save()
             return redirect('my_posts')
     return render(request, 'blog/update_ticket.html', {'form': form})

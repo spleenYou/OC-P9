@@ -139,7 +139,7 @@ form .errorList {
     font-weight: normal;
 }
 
-.add_ticket div, .add_review div {
+.add_ticket div:not(.clear_image), .add_review div {
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -357,4 +357,15 @@ form .errorList {
 
 .review {
     margin-bottom: 40px;
+}
+
+.clear_image {
+    display: flex;
+    align-content: center;
+}
+
+.clear_image input {
+    margin: 0 20px;
+    min-width: initial;
+    width: auto;
 }
