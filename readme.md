@@ -87,3 +87,17 @@ In your internet browser, go on this URL to see the  login page
 ```
 http://127.0.0.1:8000
 ```
+
+You can create an account or test the website with following login/password :
+- SuperUser :
+    - Login : spleen85
+    - Password : SuperS3cret!!!
+- User :
+    - Login : toto
+    - Password : S3cret!!!
+    - Login : lea
+    - Password : S3cret!!!
+    - Login : matthieu
+    - Password : S3cret!!!
+    - Login : aurelie
+    - Password : S3cret!!!
