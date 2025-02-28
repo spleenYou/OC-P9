@@ -1,9 +1,10 @@
+{% comment %} Global template for a ticket {% endcomment %}
+
 {% load custom_filters %}
 <div class='ticket'>
     {% if not post.ticket.time_created and not form_review %}
     <span>{{ post.time_created }}</span>
     {% endif %}
-    {% comment %} {% if post.user == user and not post.ticket.user %} {% endcomment %}
     {% if post.user == user and not post.ticket.user or post.ticket.user == user %}
         <div>Vous avez demandé une critique</div>
     {% else %}
