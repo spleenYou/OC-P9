@@ -1,3 +1,5 @@
+{% comment %} Change the display of rating field to show it with stars {% endcomment %}
+
 <div class="rating">
   <label class="star_label">
     <input type="radio" name="{{ widget.name }}" value="1" {% if widget.value == "1" %}checked{% endif %} required/>
