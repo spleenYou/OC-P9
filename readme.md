@@ -1,3 +1,5 @@
+<img src="images/168805567091_LITrevu banner.png" >
+
 # LITRevu
 
 ## Presentation
