@@ -9,6 +9,15 @@ from . import forms, models
 
 @login_required
 def home(request):
+    """
+    Shows the tickets and review made by login user and followed users, review from other users in reply to login user
+
+    Args:
+        request (HttpRequest): HttpRequest
+
+    Returns:
+        HttpRequest: Return the home page
+    """
     followed_users = models.UserFollows.objects.filter(user=request.user)
     followed_users = list(followed_user.followed_user for followed_user in followed_users)
     my_tickets = models.Ticket.objects.filter(user=request.user)
@@ -23,6 +32,15 @@ def home(request):
 
 @login_required
 def add_ticket(request):
+    """
+    Shows the page to add a new ticket
+
+    Args:
+        request (HttpRequest): HttpRequest
+
+    Returns:
+        HttpRequest: Return the add ticket page
+    """
     form = forms.AddTicketForm(label_suffix='')
     if request.method == 'POST':
         form = forms.AddTicketForm(request.POST, request.FILES)
@@ -36,6 +54,16 @@ def add_ticket(request):
 
 @login_required
 def del_ticket(request, ticket_id):
+    """
+    Shows the page to delete a ticket and ask for it
+
+    Args:
+        request (HttpRequest): HttpRequest
+        ticket_id (int): Ticket's id to delete
+
+    Returns:
+        HttpRequest: Return the delete page for ticket
+    """
     ticket = models.Ticket.objects.get(id=ticket_id)
     if request.method == 'POST':
         ticket.delete()
@@ -45,6 +73,16 @@ def del_ticket(request, ticket_id):
 
 @login_required
 def update_ticket(request, ticket_id):
+    """
+    Shows the page to update a ticket
+
+    Args:
+        request (HttpRequest): HttpRequest
+        ticket_id (int): Ticket's id to update
+
+    Returns:
+        HttpRequest: Return the update page for ticket
+    """
     ticket = models.Ticket.objects.get(id=ticket_id)
     form = forms.AddTicketForm(label_suffix='', instance=ticket)
     if request.method == 'POST':
@@ -60,7 +98,17 @@ def update_ticket(request, ticket_id):
 
 
 @login_required
-def answer_ticket(request, ticket_id):
+def review_from_ticket(request, ticket_id):
+    """
+    Shows the page to made a review from a ticket
+
+    Args:
+        request (HttpRequest): HttpRequest
+        ticket_id (int): Ticket's id to reply
+
+    Returns:
+        HttpRequest: Return the review page from ticket
+    """
     ticket = models.Ticket.objects.get(id=ticket_id)
     if request.method == 'POST':
         data_review = {
@@ -76,11 +124,20 @@ def answer_ticket(request, ticket_id):
             review.save()
             return redirect('home')
     form_review = forms.AddReviewForm(label_suffix='')
-    return render(request, 'blog/answer_ticket.html', {'post': ticket, 'form_review': form_review})
+    return render(request, 'blog/review_from_ticket.html', {'post': ticket, 'form_review': form_review})
 
 
 @login_required
 def show_my_posts(request):
+    """
+    Shows user's tickets and reviews
+
+    Args:
+        request (HttpRequest): HttpRequest
+
+    Returns:
+        HttpRequest: Return the user's tickets and reviews page
+    """
     my_tickets = models.Ticket.objects.filter(user=request.user)
     my_reviews = models.Review.objects.filter(user=request.user)
     my_posts = sorted(chain(my_tickets, my_reviews), key=lambda x: x.time_created, reverse=True)
@@ -93,6 +150,15 @@ def show_my_posts(request):
 
 @login_required
 def subscribe(request):
+    """
+    Shows the page to create an account
+
+    Args:
+        request (HttpRequest): HttpRequest
+
+    Returns:
+        HttpRequest: Return the suscribe page
+    """
     error_text = None
     if request.method == 'POST':
         try:
@@ -114,6 +180,15 @@ def subscribe(request):
 
 @login_required
 def unsubscribe(request, followed_id):
+    """
+    Shows the page to delete an account
+
+    Args:
+        request (HttpRequest): HttpRequest
+
+    Returns:
+        HttpRequest: Return the unsuscribe page
+    """
     followed_user = models.UserFollows.objects.filter(id=followed_id)[0]
     if request.method == 'POST':
         followed_user.delete()
@@ -123,6 +198,15 @@ def unsubscribe(request, followed_id):
 
 @login_required
 def add_review(request):
+    """
+    Shows the page to add review from nothing
+
+    Args:
+        request (HttpRequest): HttpRequest
+
+    Returns:
+        HttpRequest: Return the page to add review from nothing
+    """
     if request.method == 'POST':
         form_ticket = forms.AddTicketForm(request.POST, request.FILES)
         data_review = {
@@ -147,6 +231,16 @@ def add_review(request):
 
 @login_required
 def update_review(request, review_id):
+    """
+    Shows the page to update a review
+
+    Args:
+        request (HttpRequest): HttpRequest
+        review_id: review's id to update
+
+    Returns:
+        HttpRequest: Return the page to update a review
+    """
     review = models.Review.objects.get(id=review_id)
     if request.method == 'POST':
         form_review = forms.AddReviewForm(request.POST)
@@ -166,6 +260,16 @@ def update_review(request, review_id):
 
 @login_required
 def del_review(request, review_id):
+    """
+    Shows the page to delete a review
+
+    Args:
+        request (HttpRequest): HttpRequest
+        review_id: review's id to delete
+
+    Returns:
+        HttpRequest: Return the page to delete a review
+    """
     review = models.Review.objects.get(id=review_id)
     if request.method == 'POST':
         review.delete()

@@ -15,7 +15,7 @@
     <img src={% firstof post.image.url post.ticket.image.url %}>
     {% endif %}
     {% if post.user != user and user|can_review:post and not form_review %}
-        <a href="{% url 'answer_ticket' post.id %}" class='button'>Créer une critique</a>
+        <a href="{% url 'review_from_ticket' post.id %}" class='button'>Créer une critique</a>
     {% elif allow_modification and not post.body %}
     <div class='button_modification'>
         <a href="{% url 'update_ticket' post.id %}" class='button'>Modifier</a>
