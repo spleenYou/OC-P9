@@ -128,11 +128,17 @@ STATICFILES_DIRS = [BASE_DIR.joinpath('static/')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Use my authentication package
+
 AUTH_USER_MODEL = 'authentication.User'
+
+# Default primary key for login/logout
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = LOGIN_URL
+
+# Default primary key for media
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images/')
 MEDIA_URL = "/images/"
