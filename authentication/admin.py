@@ -7,11 +7,14 @@ class User(admin.ModelAdmin):
     "Change the way users are displayed on the admin page"
 
     list_display = (
-        'is_active',
         'username',
         'email',
+        'is_active',
     )
     list_filter = (
         'is_active',
+    )
+    list_display_links = (
+        'username',
     )
     search_fields = ('username', 'email')
