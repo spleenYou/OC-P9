@@ -11,9 +11,10 @@ from . import forms, models
 def home(request):
     followed_users = models.UserFollows.objects.filter(user=request.user)
     followed_users = list(followed_user.followed_user for followed_user in followed_users)
-    tickets = models.Ticket.objects.filter(Q(user=request.user) | Q(user__in=followed_users))
-    reviews = models.Review.objects.filter(Q(user=request.user) | Q(user__in=followed_users))
-    posts = sorted(chain(tickets, reviews), key=lambda x: x.time_created, reverse=True)
+    my_tickets = models.Ticket.objects.filter(user=request.user)
+    followed_users_tickets = models.Ticket.objects.filter(user__in=followed_users)
+    reviews = models.Review.objects.filter(Q(user=request.user) | Q(user__in=followed_users) | Q(ticket__in=my_tickets))
+    posts = sorted(chain(my_tickets, followed_users_tickets, reviews), key=lambda x: x.time_created, reverse=True)
     return render(request, 'blog/home.html', {
         'posts': posts,
         'rating_range': range(5),

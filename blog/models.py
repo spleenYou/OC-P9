@@ -44,6 +44,9 @@ class Review(models.Model):
     )
     time_created = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"Réponse à {self.ticket.user.username}"
+
     class Meta:
         verbose_name = "La critique"
         verbose_name_plural = 'Les critiques'
