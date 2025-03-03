@@ -24,9 +24,9 @@ import authentication.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', authentication.views.login_page, name='login'),
+    path('login/', authentication.views.login_page, name='login'),
     path('signup/', authentication.views.signup_page, name='signup'),
-    path('home/', blog.views.home, name='home'),
+    path('', blog.views.home, name='home'),
     path('logout/', authentication.views.logout_user, name="logout"),
     path('ticket/add/', blog.views.add_ticket, name='add_ticket'),
     path('ticket/<int:ticket_id>/update/', blog.views.update_ticket, name='update_ticket'),

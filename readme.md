@@ -45,20 +45,20 @@ For Unix/macOs
 source .<nom_de_l_environnement_virtuel>/bin/activate
 ```
 
-#### Packages
-
-Install needed packages for the script.
-```
-pip install -r requirements.txt
-```
-
 ### Download application
 
-Be sure to be in your vitual environment
 
 Clone this repository
 ```
 git clone https://github.com/spleenYou/OC-P9.git
+```
+
+### Install packages
+
+Be sure to be in your vitual environment.  
+Install needed packages.
+```
+pip install -r OC-P9/requirements.txt
 ```
 
 ### Start server
