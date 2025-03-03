@@ -160,7 +160,7 @@ python manage.py shell
 
 That's will show a new secret key you will copy/paste in settings.py in the folder "LITRevu" on line 24.
 ```
-SECRET_KEY = '<put your new key here>'
+SECRET_KEY = '<put your new secret key here>'
 ```
 
 Quit the shell with ctrl+d or the command "exit()"
