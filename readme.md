@@ -167,7 +167,7 @@ Quit the shell with ctrl+d or the command "exit()"
 
 ### 2 - The database
 
-Delete the database's file "db.sqlite3"
+Delete the database file "db.sqlite3"
 
 Build a new one with the following command
 
