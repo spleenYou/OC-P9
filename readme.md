@@ -139,3 +139,41 @@ flake8 --format=html --htmldir=flake8-html
 ```
 
 It will create a HTML file with the result in the folder "flake8-html".
+
+## Security
+
+For secure use, modify the secret key and do not distribute it. It is used to generate passwords, sessions, etc.
+
+the database and the identifiers/passwords supplied will no longer be usable.
+
+### 1 - New secret key
+
+In the virtual environment enter the following command
+
+```
+python manage.py shell
+```
+```
+>>> from django.core.management.utils import get_random_secret_key
+>>> print(get_random_secret_key())
+```
+
+That's will show a new secret key you will copy/paste in settings.py in the folder "LITRevu" on line 24.
+```
+SECRET_KEY = '<put your new key here>'
+```
+
+Quit the shell with ctrl+d or the command "exit()"
+
+### 2 - The database
+
+Delete the database's file "db.sqlite3"
+
+Build a new one with the following command
+
+```
+python manage.py migrate
+
+```
+
+Now there is a new empty database available for use.
