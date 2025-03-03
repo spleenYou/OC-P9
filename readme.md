@@ -82,7 +82,7 @@ In your internet browser, go on this URL to see the login page and a link to cre
 http://127.0.0.1:8000
 ```
 
-Possiblity to create an account or test the website with one of the following login/password :
+Possiblity to create an account or test the website with one of the following login/password which that have been created for the tests:
 - SuperUser :
     - Login : spleen85
     - Password : SuperS3cret!!!
@@ -129,3 +129,13 @@ This page contained the users you follow, with the option of following other use
 #### Se déconnecter
 
 To be disconnected
+
+## Flake8 Verification
+
+Use flake8 to check if the project follow pep-8 guide for python code.
+
+```
+flake8 --format=html --htmldir=flake8-html
+```
+
+It will create a HTML file with the result in the folder "flake8-html".
