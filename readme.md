@@ -155,6 +155,8 @@ SECRET_KEY = '<put your new secret key here>'
 
 Quit the shell with ctrl+d or the command "exit()"
 
+And run server again
+
 ## Database
 
 If you need a new and clean database, delete the database file "db.sqlite3"
