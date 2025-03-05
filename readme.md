@@ -130,23 +130,13 @@ This page contained the users you follow, with the option of following other use
 
 To be disconnected
 
-## Flake8 Verification
-
-Use flake8 to check if the project follow pep-8 guide for python code.
-
-```
-flake8 --format=html --htmldir=flake8-html
-```
-
-It will create a HTML file with the result in the folder "flake8-html".
-
 ## Security
 
 For secure use, modify the secret key and do not distribute it. It is used to generate passwords, sessions, etc.
 
 the database and the identifiers/passwords supplied will no longer be usable.
 
-### 1 - New secret key
+### New secret key
 
 In the virtual environment enter the following command
 
@@ -165,9 +155,9 @@ SECRET_KEY = '<put your new secret key here>'
 
 Quit the shell with ctrl+d or the command "exit()"
 
-### 2 - The database
+## Database
 
-Delete the database file "db.sqlite3"
+If you need a new and clean database, delete the database file "db.sqlite3"
 
 Build a new one with the following command
 
@@ -177,3 +167,13 @@ python manage.py migrate
 ```
 
 Now there is a new empty database available for use.
+
+## Flake8 Verification
+
+Use flake8 to check if the project follow pep-8 guide for python code.
+
+```
+flake8 --format=html --htmldir=flake8-html
+```
+
+It will create a HTML file with the result in the folder "flake8-html".
