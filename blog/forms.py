@@ -4,13 +4,15 @@ from . import models
 
 class CustomImageFieldWidget(forms.ClearableFileInput):
     "template name for change the way it will be display"
-
     template_name = 'ImageField.html'
 
 
 class AddTicketForm(forms.ModelForm):
 
-    class Meta:
+    def get_title(self):
+        return self.title
+
+    class Meta():
         model = models.Ticket
         fields = [
             'title',
