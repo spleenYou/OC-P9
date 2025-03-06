@@ -115,7 +115,7 @@ input::placeholder {
     width: 50%;
 }
 
-.errorList {
+.errorList, .errors {
     list-style-type: none;
     color: rgb(230, 0, 0);
 }
