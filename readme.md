@@ -85,7 +85,7 @@ http://127.0.0.1:8000
 You can create an account or test the website with one of the following login/password which that have been created for the tests:
 - SuperUser :
     - Login : spleen85
-    - Password : SuperS3cret!!!
+    - Password : Supers3cret!!!
 - User :
     - Login : toto
     - Password : S3cret!!!
