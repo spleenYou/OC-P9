@@ -337,12 +337,12 @@ form .errorList {
 .rating:not(:hover) label input:checked ~ .icon,
 .rating:hover label:hover input ~ .icon,
 .star_rating .blue {
-    color: rgb(93, 187, 223);
+    color: rgb(76, 130, 0)
 }
 
 .star_label input:focus:not(:checked) ~ .icon:last-child {
     color: rgb(55, 55, 55);
-    text-shadow: 0 0 5px rgb(93, 187, 223);
+    text-shadow: 0 0 5px rgb(76, 130, 0)
 }
 
 .review .ticket {
