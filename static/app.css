@@ -50,7 +50,7 @@ input {
     margin: 10px 0;
     border: 2px solid rgb(55, 55, 55);
     width: 20%;
-    min-width: 200px;
+    min-width: 300px;
     text-align: center;
 }
 
@@ -242,6 +242,7 @@ form .errorList {
 
 .ticket img {
     justify-self: center;
+    width: inherit;
 }
 
 .suscribe {
@@ -341,12 +342,12 @@ form .errorList {
 .rating:not(:hover) label input:checked ~ .icon,
 .rating:hover label:hover input ~ .icon,
 .star_rating .blue {
-    color: rgb(93, 187, 223);
+    color: rgb(47, 119, 148);
 }
 
 .star_label input:focus:not(:checked) ~ .icon:last-child {
     color: rgb(55, 55, 55);
-    text-shadow: 0 0 5px rgb(93, 187, 223);
+    text-shadow: 0 0 5px rgb(47, 119, 148);
 }
 
 .review .ticket {
