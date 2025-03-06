@@ -35,10 +35,6 @@ nav div:nth-child(3) a {
     text-decoration: none;
 }
 
-nav div:nth-child(3) a:hover {
-    background-color: rgb(180, 229, 242);
-}
-
 section {
     display: grid;
     justify-items: center;
