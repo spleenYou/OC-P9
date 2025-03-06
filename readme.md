@@ -136,27 +136,6 @@ For secure use, modify the secret key and do not distribute it. It is used to ge
 
 the database and the identifiers/passwords supplied will no longer be usable.
 
-### New secret key
-
-In the virtual environment enter the following command
-
-```
-python manage.py shell
-```
-```
->>> from django.core.management.utils import get_random_secret_key
->>> print(get_random_secret_key())
-```
-
-That's will show a new secret key you will copy/paste in settings.py in the folder "LITRevu" on line 24.
-```
-SECRET_KEY = '<put your new secret key here>'
-```
-
-Quit the shell with ctrl+d or the command "exit()"
-
-And run server again
-
 ## Database
 
 If you need a new and clean database, delete the database file "db.sqlite3"
