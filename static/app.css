@@ -117,7 +117,7 @@ input::placeholder {
 
 .errorList {
     list-style-type: none;
-    color: red;
+    color: rgb(230, 0, 0);
 }
 
 form .errorList {
