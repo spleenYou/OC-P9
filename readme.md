@@ -130,12 +130,6 @@ This page contained the users you follow, with the option of following other use
 
 To be disconnected
 
-## Security
-
-For secure use, modify the secret key and do not distribute it. It is used to generate passwords, sessions, etc.
-
-the database and the identifiers/passwords supplied will no longer be usable.
-
 ## Database
 
 If you need a new and clean database, delete the database file "db.sqlite3"
