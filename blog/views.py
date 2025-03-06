@@ -162,16 +162,25 @@ def subscribe(request):
         HttpRequest: Return the suscribe page
     """
     error_text = None
+    list_followed_users = models.UserFollows.objects.filter(user=request.user)
     if request.method == 'POST':
         try:
-            user_to_follow = User.objects.get(username=request.POST.get('username'))
-            user_follows = models.UserFollows()
-            user_follows.user = request.user
-            user_follows.followed_user = user_to_follow
-            user_follows.save()
+            new_user_to_follow = request.POST.get('username')
+            print(request.user)
+            if new_user_to_follow == request.user.username:
+                error_text = 'Impossible de se suivre soi-même'
+            else:
+                list_followed_usernames = list(user.followed_user.username for user in list_followed_users)
+                if new_user_to_follow not in list_followed_usernames:
+                    user_to_follow = User.objects.get(username=new_user_to_follow)
+                    user_follows = models.UserFollows()
+                    user_follows.user = request.user
+                    user_follows.followed_user = user_to_follow
+                    user_follows.save()
+                else:
+                    error_text = f"L'utilisateur {new_user_to_follow} est déjà suivi"
         except User.DoesNotExist:
             error_text = f"L'utilisateur '{request.POST.get('username')}' n'existe pas"
-    list_followed_users = models.UserFollows.objects.filter(user=request.user)
     list_users_following_you = models.UserFollows.objects.filter(followed_user=request.user)
     return render(request, 'blog/subscribe.html', {
         'list_followed_users': list_followed_users,
